@@ -27,6 +27,25 @@ void insertAfter(Node *current, Node* new)
 	current->next = new;
 }
 
+void insertBefore(Node **head, Node *current, Node *new)
+{
+	if (head == current)
+	{
+		new->next = current;
+		*head = new;
+	}
+	else
+	{
+		Node *prev = head;
+		while (prev->next != current)
+		{
+			prev = prev->next;
+		}
+		prev->next = new;
+		new->next = current;
+	}
+}
+
 void insertNewHead(Node **head, Node *newHead)
 {
 	if (*head == NULL)
